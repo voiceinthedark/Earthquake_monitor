@@ -1,22 +1,13 @@
-"""EarthQuake Monitor v. 1
-Usage: 
-    eqm START END
-    eqm START END -m <mag>
 
-Arguments:
-    START  A date in the format yyyy-mm-dd
-    END  A date in the format yyyy-mm-dd
-
-Options:
-    -h --help   Show this help screen
-    -m --minmag=<mag>  filter by a minimum magnitude
-    
-"""
 
 import json, datetime
 from datetime import datetime
 import requests
 import docopt
+import eel
+
+eel.init('web')
+eel.start('index.html', port=5555, size=[520, 640])
 
 
 

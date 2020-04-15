@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap scripts -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src="./js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+
+    <!-- Date picker -->
+    <link rel="stylesheet" href="./css/bootstrap-datepicker.min.css">
+    <script src="./js/bootstrap-datepicker.min.js"></script>
+
+
+    <!-- Eel scripts -->
+    <script type="text/javascript" src="/eel.js"></script>
+
+    <title>Earthquake Monitor</title>
+
+</head>
+<body>
+    <div class="jumbotron">
+        <h1 class="display-5">Earthquake Monitor</h1>
+        <p class="lead">An earthquake monitor</p>
+        
+    </div>
+    <div class="container">
+        <div class="form-group">
+            <div class="row">
+                <div class="col">                
+                    <div class="input-group date">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" >Start date</span>
+                        </div>
+                        <input type="text" class="form-control" id="start_date">                
+                    </div>     
+                </div>
+
+                <div class="col">            
+                    <div class="input-group date">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">End date</span>
+                        </div>
+                        <input type="text" class="form-control" id="end_date">
+                    </div>           
+                </div>
+            </div>
+            <div class="row" style="padding-top: 1rem;">
+                <div class="col">
+                    <button type="button" class="btn btn-primary btn-lg btn-block">Get data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>$('.input-group.date input').datepicker({
+            format: "yyyy-mm-dd",
+            todayHighlight: true
+        });</script>
+    
+</body>
+</html>
