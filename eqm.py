@@ -7,23 +7,29 @@ import docopt
 import eel
 
 eel.init('web')
-eel.start('index.html', port=5555, size=[520, 640])
 
-
-
-
+@eel.expose
 def do_request(start_time='2020-04-14', end_time='2020-04-15', magnitude=0):
     init_query = "https://earthquake.usgs.gov/fdsnws/event/1/query"
     params = {'format': 'geojson', 'starttime': start_time, 'endtime': end_time}
     r = requests.get(init_query, params=params)
     if r.status_code == 200:
+        data = []
         response = json.loads(r.content)
         array_earthquakes = response.get('features')
-        for eq_obj in array_earthquakes:
-            if eq_obj['properties']['mag'] > magnitude:
-                t = eq_obj['properties']['time']                
-                eq_date = datetime.fromtimestamp(t/1000).strftime('%Y/%m/%d %H:%M')
-                print(f"{eq_obj['properties']['mag']: >5} magnitude {eq_obj['properties']['place']: >50} \ton {eq_date: >25}")
+        try:
+            for eq_obj in array_earthquakes:
+                if eq_obj['properties']['mag'] > magnitude:
+                    t = eq_obj['properties']['time']                
+                    eq_date = datetime.fromtimestamp(t/1000).strftime('%Y/%m/%d %H:%M')
+                    data.append({'location': eq_obj['properties']['place'],
+                        'magnitude': eq_obj['properties']['mag'],
+                        'time': eq_date})
+        except Exception as e:
+            pass
+    return data
+
+eel.start('index.html', port=5555, size=[520, 640], block=True)
 
 
 if __name__ == "__main__":

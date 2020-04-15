@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Bootstrap scripts -->
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <script src="./js/bootstrap.min.js"></script>
-
+    <!-- Bootstrap scripts -->    
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src="./js/bootstrap.min.js"></script>
 
     <!-- Date picker -->
     <link rel="stylesheet" href="./css/bootstrap-datepicker.min.css">
@@ -22,6 +21,9 @@
 
     <!-- Eel scripts -->
     <script type="text/javascript" src="/eel.js"></script>
+
+    <!-- Main js -->
+    <script type="text/javascript" src="./js/main.js"></script>
 
     <title>Earthquake Monitor</title>
 
@@ -55,7 +57,7 @@
             </div>
             <div class="row" style="padding-top: 1rem;">
                 <div class="col">
-                    <button type="button" class="btn btn-primary btn-lg btn-block">Get data</button>
+                    <button onclick="collect_data()" type="button" class="btn btn-primary btn-lg btn-block">Get data</button>
                 </div>
             </div>
         </div>
