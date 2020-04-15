@@ -22,14 +22,14 @@ def do_request(start_time='2020-04-14', end_time='2020-04-15', magnitude=0):
                 if eq_obj['properties']['mag'] > magnitude:
                     t = eq_obj['properties']['time']                
                     eq_date = datetime.fromtimestamp(t/1000).strftime('%Y/%m/%d %H:%M')
-                    data.append({'location': eq_obj['properties']['place'],
-                        'magnitude': eq_obj['properties']['mag'],
+                    data.append({'magnitude': eq_obj['properties']['mag'],
+                        'location': eq_obj['properties']['place'],
                         'time': eq_date})
         except Exception as e:
             pass
     return data
 
-eel.start('index.html', port=5555, size=[520, 640], block=True)
+eel.start('index.html', port=5555, size=(520, 640), block=True)
 
 
 if __name__ == "__main__":
