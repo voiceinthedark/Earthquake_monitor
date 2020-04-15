@@ -1,33 +1,22 @@
-
-function elt(type, ...children) {
-    let node = document.createElement(type);
-    for (let child of children) {
-        if (typeof child != "string") node.appendChild(child);
-        else node.appendChild(document.createTextNode(child));
-    }
-    return node;
-}
-
+/**
+ * Collect data
+ * Asynchronus function to collect data from the python backend and display them in a table
+ */
 async function collect_data(){
     let start_date = document.querySelector("#start_date");
     let end_date = document.querySelector("#end_date");    
     let earthquakes;
+    // collect the data through eel python backend
+    // TODO: accept input of magnitude
     earthquakes = await eel.do_request(start_date.value, end_date.value, 4)();
     let tablebody = document.querySelector("#tbl_earthquake > tbody");
-
+    // clear the table body of any child elements
     tablebody.innerHTML = "";
-
-    for(let r of earthquakes){
-        // console.log(r['magnitude']);
-        
-        // tablebody.appendChild(elt("tr", elt("td", r["magnitude"])), 
-        //     elt("td", r["location"]), elt("td", r["time"]));
-
+    for(let r of earthquakes){      
         let trow = tablebody.appendChild(document.createElement("tr"));
         for(let record in r){            
             let td = trow.appendChild(document.createElement("td"));
             td.appendChild(document.createTextNode(r[record]));
         }
-
     }
 }
