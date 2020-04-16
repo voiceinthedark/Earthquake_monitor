@@ -34,9 +34,10 @@
         <p class="lead">An earthquake monitor</p>
         
     </div>
-    <div class="container">
+    <div class="container-fluid">
         <div class="form-group">
             <div class="row">
+                <!-- Start date -->
                 <div class="col">                
                     <div class="input-group date">
                         <div class="input-group-prepend">
@@ -45,7 +46,7 @@
                         <input type="text" class="form-control" id="start_date" placeholder="yyyy-mm-dd">                
                     </div>     
                 </div>
-
+                <!-- End date -->
                 <div class="col">            
                     <div class="input-group date">
                         <div class="input-group-prepend">
@@ -53,6 +54,12 @@
                         </div>
                         <input type="text" class="form-control" id="end_date" placeholder="yyyy-mm-dd">
                     </div>           
+                </div>
+                <!-- Magnitude -->
+                <div class="col-3">
+                    <div class="input-group date">                        
+                        <input type="text" class="form-control" id="magnitude" placeholder="magnitude: 4.0">
+                    </div>
                 </div>
             </div>
             <div class="row" style="padding-top: 1rem;">
@@ -77,7 +84,7 @@
         </tbody>
     </table>
 
-    <script>$('.input-group.date input').datepicker({
+    <script>$('#start_date, #end_date').datepicker({
             format: "yyyy-mm-dd",
             todayHighlight: true
         });</script>

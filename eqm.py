@@ -29,7 +29,7 @@ def do_request(start_time='2020-04-14', end_time='2020-04-15', magnitude=0):
             pass
     return data
 
-eel.start('index.html', port=5555, size=(520, 640), block=True)
+eel.start('index.html', port=5555, size=(680, 640), block=True)
 
 
 if __name__ == "__main__":
