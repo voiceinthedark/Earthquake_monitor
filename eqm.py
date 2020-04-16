@@ -34,7 +34,6 @@ eel.start('index.html', port=5555, size=(520, 640), block=True)
 
 if __name__ == "__main__":
     args = docopt.docopt(__doc__, version='1.0')
-    # print(args)
     if args['--minmag']:
         do_request(start_time=args['START'], end_time=args['END'], magnitude=int(args['--minmag']))
     else:
