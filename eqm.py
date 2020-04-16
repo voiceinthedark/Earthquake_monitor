@@ -3,7 +3,6 @@
 import json, datetime
 from datetime import datetime
 import requests
-import docopt
 import eel
 
 eel.init('web')
@@ -30,12 +29,3 @@ def do_request(start_time='2020-04-14', end_time='2020-04-15', magnitude=0):
     return data
 
 eel.start('index.html', port=5555, size=(680, 640), block=True)
-
-
-if __name__ == "__main__":
-    args = docopt.docopt(__doc__, version='1.0')
-    if args['--minmag']:
-        do_request(start_time=args['START'], end_time=args['END'], magnitude=int(args['--minmag']))
-    else:
-        do_request(start_time=args['START'],
-                   end_time=args['END'])
