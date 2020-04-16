@@ -3,12 +3,12 @@
  * Asynchronus function to collect data from the python backend and display them in a table
  */
 async function collect_data(){
-    let start_date = document.querySelector("#start_date");
-    let end_date = document.querySelector("#end_date");    
-    let magnitude = document.querySelector("#magnitude");
+    let start_date = document.querySelector("#start_date").value;
+    let end_date = document.querySelector("#end_date").value;    
+    let magnitude = document.querySelector("#magnitude").value;
     let earthquakes;
     // collect the data through eel python backend
-    earthquakes = await eel.do_request(start_date.value, end_date.value, Number(magnitude.value))();
+    earthquakes = await eel.do_request(start_date, end_date, Number(magnitude))();
     let tablebody = document.querySelector("#tbl_earthquake > tbody");
     // clear the table body of any child elements
     tablebody.innerHTML = "";
